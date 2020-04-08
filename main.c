@@ -20,8 +20,9 @@ int main(){
 
   while(1){
     //increase counter1 value each 500ms
-    if(SysTickValueGet()<1)counter1++;
+    while(SysTickValueGet()>15);
     //calculate counter2(1000ms) and counter3(1500ms) from counter1(500ms)
+    counter1++;
     counter2 = counter1/2;
     counter3 = counter1/3;
 
