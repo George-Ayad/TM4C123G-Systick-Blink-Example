@@ -6,6 +6,8 @@ int main(){
   SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
   while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOF));
   GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1);
+  GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_2);
+  GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_3);
 
   // Set Systick period to 500 ms -> 500,000,000 nanoseconds * (1/16Mhz)
   SysTickPeriodSet(0x7A1200);
@@ -25,14 +27,14 @@ int main(){
 
     // switch LED state according to respective counter value
     // set high for even numbers and low for odd numbers
-    if (counter1%2 == 0) GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, GPIO_PIN_1);
-    else GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0x0);
+    if (counter1%2 == 0) GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0x0);
+    else GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, GPIO_PIN_1);
 
-    if (counter2%2 == 0) GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, GPIO_PIN_2);
-    else GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, 0x0);
+    if (counter2%2 == 0) GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, 0x0);
+    else GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, GPIO_PIN_2);
 
-    if (counter3%2 == 0) GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, GPIO_PIN_3);
-    else GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, 0x0);
+    if (counter3%2 == 0) GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, 0x0);
+    else GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, GPIO_PIN_3);
   }
 
   return 0;
